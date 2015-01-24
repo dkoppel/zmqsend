@@ -5,13 +5,12 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM dockerfile/python
 
 # Install Python.
 RUN \
   apt-get update && \
-  apt-get install -y python python-dev python-pip python-virtualenv && \
-  rm -rf /var/lib/apt/lists/* && \
+  apt-get install -y libzmq-dev && \
   pip install pyzmq
 
 COPY zmqircsend.py /data/
